@@ -9,9 +9,9 @@ greet_customer() {
 # Function to display products
 browse_products() {
     echo "We offer a wide range of electronics:"
-    for key in $(echo "${!products[@]}" | tr ' ' '\n' | sort -n); do
+    for key in "${!products[@]}"; do
         product=${products[$key]}
-        price=$(echo "${prices[$product]}" | awk '{print int($1 + rand() * ($2 - $1 + 1))}')
+        price=${prices[$product]}
         echo "$key. $product (Price: \$$price)"
     done
 }
@@ -44,7 +44,7 @@ checkout() {
         return
     fi
     echo "-------------------------------"
-    echo "** Electronics Store - Receipt**"
+    echo "** Electronics Direct - Receipt**"
     total_price=0
     for product in "${selected_products[@]}"; do
         price=$(echo "${prices[$product]}" | awk '{print int($1 + rand() * ($2 - $1 + 1))}')
