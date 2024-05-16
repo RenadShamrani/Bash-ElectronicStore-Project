@@ -44,7 +44,7 @@ checkout() {
         return
     fi
     echo "-------------------------------"
-    echo "** Electronics Direct - Receipt**"
+    echo "** Electronics Store - Receipt**"
     total_price=0
     for product in "${selected_products[@]}"; do
         price=$(echo "${prices[$product]}" | awk '{print int($1 + rand() * ($2 - $1 + 1))}')
