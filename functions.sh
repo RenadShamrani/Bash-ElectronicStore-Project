@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# 4 functions in this file
 # Function to greet the customer
 greet_customer() {
     local greetings=("Hello, welcome to Electronics Direct!" "Hi there! How can I help you today?" "Good day! Are you looking for something specific?")
