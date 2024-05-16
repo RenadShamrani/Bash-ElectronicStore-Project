@@ -83,4 +83,3 @@ checkout() {
         echo "Invalid payment method. Please choose cash or credit."
     fi
 }
-
