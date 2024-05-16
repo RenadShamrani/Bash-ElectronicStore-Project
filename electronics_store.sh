@@ -33,7 +33,6 @@ browse_products() {
     done
 }
 
-
 # Function to select products
 select_products() {
     selected_products=()
@@ -41,7 +40,9 @@ select_products() {
         read -p "Enter the product number you would like to purchase (or type 'done' to finish): " choice
         case $choice in
             [1-5])
-                selected_products+=(${products[$choice]})
+                product=${products[$choice]}
+                selected_products+=("$product")
+                echo "Successfully added to your cart: $product"
             ;;
             "done")
                 break
@@ -60,7 +61,7 @@ checkout() {
         return
     fi
     echo "-------------------------------"
-    echo "** Electronics Direct - Receipt**"
+    echo "** Electronics Store - Receipt**"
     total_price=0
     for product in "${selected_products[@]}"; do
         price=$(echo "${prices[$product]}" | awk '{print int($1 + rand() * ($2 - $1 + 1))}')
@@ -88,4 +89,3 @@ main() {
 
 # Run main function
 main
-
